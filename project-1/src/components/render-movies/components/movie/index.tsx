@@ -8,7 +8,7 @@ export type MovieProps = {
     picture: string;
 };
 
-const Movie = ({ id, picture, rating, title }: MovieProps) => {
+const Movie = ({ picture, rating, title }: MovieProps) => {
     return (
         <div className="movie">
             <img src={picture} />
