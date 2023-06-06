@@ -1,5 +1,5 @@
 export type TitleProps = {
-    children : string;
+    children : React.ReactNode;
 }
 
 const Title = ({children} : TitleProps) => {

@@ -3,9 +3,9 @@ import Title from "./components/title";
 
 export type MovieProps = {
     id: number;
-    title: string;
-    rating: number;
     picture: string;
+    rating: number;
+    title: string;
 };
 
 const Movie = ({ picture, rating, title }: MovieProps) => {
