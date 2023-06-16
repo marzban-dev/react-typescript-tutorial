@@ -1,5 +1,7 @@
 import "./App.css";
+import Button from "./components/button";
 import CustomInput from "./components/custom-input";
+import { ThemeContextProvider } from "./context/ThemeContext";
 
 function App() {
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,23 +12,34 @@ function App() {
         event.preventDefault();
     };
 
-    const onSubmitHandler = (event : React.FormEvent<HTMLFormElement>) => {
+    const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.target;
-    }
+    };
 
-    const onKeyDownHandler = (event : React.KeyboardEvent<HTMLButtonElement>) => {
+    const onKeyDownHandler = (event: React.KeyboardEvent<HTMLButtonElement>) => {
         event.key;
-    }
+    };
 
     return (
-        <form onSubmit={onSubmitHandler}>
-            <input type="text" onChange={onChangeHandler} />
-            <button onClick={onClickHandler} onKeyDown={onKeyDownHandler}>Click Me</button>
+        <>
+            {/* <form onSubmit={onSubmitHandler}>
+                <input type="text" onChange={onChangeHandler} />
+                <button onClick={onClickHandler} onKeyDown={onKeyDownHandler}>
+                    Click Me
+                </button>
 
-            <CustomInput onChange={(e) => {
-                e.target.value
-            }} value=""/>
-        </form>
+                <CustomInput
+                    onChange={(e) => {
+                        e.target.value;
+                    }}
+                    value=""
+                />
+            </form> */}
+
+            <ThemeContextProvider>
+                <Button />
+            </ThemeContextProvider>
+        </>
     );
 }
 
