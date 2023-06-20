@@ -1,7 +1,9 @@
 import "./App.css";
 import Button from "./components/button";
 import CustomInput from "./components/custom-input";
+import ShowUser from "./components/show-user";
 import { ThemeContextProvider } from "./context/ThemeContext";
+import { UserContextProvider } from "./context/UserContext";
 
 function App() {
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,9 +38,13 @@ function App() {
                 />
             </form> */}
 
-            <ThemeContextProvider>
+            {/* <ThemeContextProvider>
                 <Button />
-            </ThemeContextProvider>
+            </ThemeContextProvider> */}
+
+            <UserContextProvider>
+                <ShowUser />
+            </UserContextProvider>
         </>
     );
 }
