@@ -1,4 +1,5 @@
 import "./App.css";
+import AddItem from "./components/add-item";
 import RenderItems from "./components/render-items";
 import { TodoContextProvider } from "./context/to-do-context";
 
