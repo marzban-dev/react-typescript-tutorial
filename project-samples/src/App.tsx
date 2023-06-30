@@ -1,6 +1,7 @@
 import "./App.css";
 import Button from "./components/button";
 import CustomInput from "./components/custom-input";
+import RestrictingExample from "./components/restricting-example";
 import ShoppingCart from "./components/shoping-cart";
 import ShowUser from "./components/show-user";
 import { ThemeContextProvider } from "./context/ThemeContext";
@@ -47,7 +48,7 @@ function App() {
                 <ShowUser />
             </UserContextProvider> */}
 
-            <ShoppingCart />
+            {/* <ShoppingCart /> */}
         </>
     );
 }
