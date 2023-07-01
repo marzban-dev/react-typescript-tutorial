@@ -1,6 +1,7 @@
 import "./App.css";
 import Button from "./components/button";
 import CustomInput from "./components/custom-input";
+import Generics from "./components/generics";
 import RestrictingExample from "./components/restricting-example";
 import ShoppingCart from "./components/shoping-cart";
 import ShowUser from "./components/show-user";
@@ -49,6 +50,13 @@ function App() {
             </UserContextProvider> */}
 
             {/* <ShoppingCart /> */}
+
+            <Generics<{ id: number; name: string }>
+                items={[{ id: 2, name: "mansour" }]}
+                onClick={(value) => {
+                    console.log(value.id);
+                }}
+            />
         </>
     );
 }
