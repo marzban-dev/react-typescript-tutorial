@@ -1,4 +1,5 @@
 import "./App.css";
+import ApiExample from "./components/api-example";
 import Button from "./components/button";
 import CustomInput from "./components/custom-input";
 import Generics from "./components/generics";
@@ -51,12 +52,14 @@ function App() {
 
             {/* <ShoppingCart /> */}
 
-            <Generics<{ id: number; name: string }>
+            {/* <Generics<{ id: number; name: string }>
                 items={[{ id: 2, name: "mansour" }]}
                 onClick={(value) => {
                     console.log(value.id);
                 }}
-            />
+            /> */}
+
+            <ApiExample />
         </>
     );
 }
