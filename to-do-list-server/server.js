@@ -2,6 +2,7 @@ const express = require("express");
 const { getTodos, createTodo, removeTodo, completeTodo } = require("./db");
 const app = express();
 const port = 3000;
+const sleep = require("./sleep").default;
 
 app.use(express.json());
 
@@ -11,6 +12,7 @@ app.get("/todo", async (req, res) => {
 });
 
 app.post("/todo", async (req, res) => {
+    await sleep();
     await createTodo(req.body);
     res.status(200).send();
 });

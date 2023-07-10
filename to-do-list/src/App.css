@@ -26,3 +26,20 @@
     transform-origin: left;
     animation-timing-function: ease-out;
 }
+
+@keyframes spin {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+.spin {
+    animation-name: spin;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    animation-timing-function: linear;
+}

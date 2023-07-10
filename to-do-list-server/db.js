@@ -9,7 +9,10 @@ exports.getTodos = async () => {
 exports.createTodo = async (todoData) => {
     const todosJson = await fs.readFile("./todos.json");
     const todos = JSON.parse(todosJson);
-    const newTodos = [...todos, { id: todos.length + 1, ...todoData, completed: false }];
+    const newTodos = [
+        ...todos,
+        { id: todos.length !== 0 ? todos.at(-1).id + 1 : 1, ...todoData, completed: false },
+    ];
     await fs.writeFile("./todos.json", JSON.stringify(newTodos));
 };
 

@@ -1,12 +1,15 @@
+import { deleteTodo, fetchTodos } from "../../../../../../api/todo";
 import { TodoContext } from "../../../../../../context/to-do-context";
 import { DeleteButtonProps } from "./types";
 import { useContext } from "react";
 
 const DeleteButton = ({ id }: DeleteButtonProps) => {
-    const { removeTodoItem } = useContext(TodoContext);
+    const { setTodos } = useContext(TodoContext);
 
-    const removeItem = () => {
-        removeTodoItem(id);
+    const removeItem = async () => {
+        await deleteTodo(id);
+        const todos = await fetchTodos();
+        setTodos(todos);
     };
 
     const buttonStyle: React.CSSProperties = {

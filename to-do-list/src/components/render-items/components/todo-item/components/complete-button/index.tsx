@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { CompleteButtonProps } from "./types";
 import { TodoContext } from "../../../../../../context/to-do-context";
+import { completeTodo as completeTodoApi, fetchTodos } from "../../../../../../api/todo";
 
 const CompleteButton = ({ id, priority, completed }: CompleteButtonProps) => {
-    const { markAsCompleted } = useContext(TodoContext);
+    const { setTodos } = useContext(TodoContext);
 
-    const completeTodo = () => {
-        markAsCompleted({
-            id,
-            complete: !completed,
-        });
+    const completeTodo = async () => {
+        await completeTodoApi(id)
+        const todos = await fetchTodos();
+        setTodos(todos);
     };
 
     const todoColors = [

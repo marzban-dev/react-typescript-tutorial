@@ -1,9 +1,18 @@
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useEffect } from "react";
 import { TodoContext } from "../../context/to-do-context";
 import TodoItem from "./components/todo-item";
+import { fetchTodos } from "../../api/todo";
 
 const RenderItems = () => {
-    const { todos } = useContext(TodoContext);
+    const { todos, setTodos } = useContext(TodoContext);
+
+    useEffect(() => {
+        const getTodos = async () => {
+            const todos = await fetchTodos();
+            setTodos(todos);
+        };
+        getTodos();
+    }, []);
 
     const sortTodos = (isCompleted: boolean) => {
         return todos
@@ -15,9 +24,9 @@ const RenderItems = () => {
             });
     };
 
-    const completedItems = useMemo(() => sortTodos(true), [todos]);
+    const completedItems = useMemo(() => sortTodos(true), [todos, sortTodos]);
 
-    const uncompletedItems = useMemo(() => sortTodos(false), [todos]);
+    const uncompletedItems = useMemo(() => sortTodos(false), [todos, sortTodos]);
 
     const completedItemsContainer: React.CSSProperties = {
         marginTop: 20,
